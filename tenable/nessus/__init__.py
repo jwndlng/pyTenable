@@ -4,6 +4,8 @@ Product: Nessus Professional Version 8
 
 .. autoclass:: TenableNessus
 
+.. automodule:: tenable.nessus.plugins
+
 '''
 
 from tenable.base.v1 import APISession
@@ -120,3 +122,7 @@ class TenableNessus(APISession):
             resp = self.delete('token')
         self._build_session()
         self._apikeys = False
+
+    @property
+    def plugins(self):
+        return PluginAPI(self)
