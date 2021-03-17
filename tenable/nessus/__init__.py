@@ -5,6 +5,7 @@ Product: Nessus Professional Version 8
 .. autoclass:: TenableNessus
 
 .. automodule:: tenable.nessus.plugins
+.. automodule:: tenable.nessus.scans
 
 '''
 
@@ -126,3 +127,7 @@ class TenableNessus(APISession):
     @property
     def plugins(self):
         return PluginAPI(self)
+
+    @property
+    def scans(self):
+        return ScanAPI(self)
