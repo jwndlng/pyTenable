@@ -6,6 +6,7 @@ Product: Nessus Professional Version 8
 
 .. automodule:: tenable.nessus.plugins
 .. automodule:: tenable.nessus.scans
+.. automodule:: tenable.nessus.servers
 
 '''
 
@@ -13,6 +14,7 @@ from tenable.base.v1 import APISession
 from tenable.errors import *
 from .plugins import PluginAPI
 from .scans import ScanAPI
+from .server import ServerAPI
 import warnings
 
 
@@ -131,3 +133,7 @@ class TenableNessus(APISession):
     @property
     def scans(self):
         return ScanAPI(self)
+
+    @property
+    def servers(self):
+        return ServerAPI(self)
