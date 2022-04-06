@@ -1,17 +1,15 @@
 '''
 
-Product: Nessus Professional Version 8
+Product: Nessus Professional
 
 .. autoclass:: TenableNessus
 
-.. automodule:: tenable.nessus.plugins
 .. automodule:: tenable.nessus.scans
 
 '''
 
 from tenable.base.v1 import APISession
 from tenable.errors import *
-from .plugins import PluginAPI
 from .scans import ScanAPI
 import warnings
 
@@ -120,13 +118,9 @@ class TenableNessus(APISession):
             >>> nessus.logout()
         '''
         if not self._apikeys:
-            resp = self.delete('token')
+            self.delete('token')
         self._build_session()
         self._apikeys = False
-
-    @property
-    def plugins(self):
-        return PluginAPI(self)
 
     @property
     def scans(self):

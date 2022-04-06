@@ -13,10 +13,10 @@ Methods available on ``nessus.scans``:
     .. automethod:: export_scan
 '''
 
-from .base import NessusEndpoint
+from tenable.base.endpoint import APIEndpoint
 import time
 
-class ScanAPI(NessusEndpoint):
+class ScanAPI(APIEndpoint):
 
     def list(self):
         '''
